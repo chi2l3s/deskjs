@@ -1,6 +1,6 @@
 {
   "name": "@deskjs/cli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "bin": {
     "desk": "./dist/index.js"

@@ -1,6 +1,9 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { spawnSync } from "node:child_process";
 import { runCommand } from "@deskjs/platform-web/command";
+
+const gradleVersion = "8.13";
 
 export interface AndroidConfig {
   appId: string;
@@ -134,12 +137,14 @@ export function buildAndroid(options: AndroidOptions) {
   cpSync(options.webDir, join(outDir, "app", "src", "main", "assets", "www"), { recursive: true });
   writeFileSync(
     join(outDir, "README.md"),
-    "Open this Gradle project in Android Studio or run `gradle assembleDebug` with Android SDK installed.\n"
+    "Open this Gradle project in Android Studio or run `gradle assembleDebug` with Android SDK installed. If Gradle is not installed, deskjs downloads a local Gradle distribution during `--package`.\n"
   );
   return { outDir };
 }
 
 function findApk(dir: string): string | null {
+  if (!existsSync(dir)) return null;
+
   for (const item of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, item.name);
     if (item.isDirectory()) {
@@ -152,15 +157,80 @@ function findApk(dir: string): string | null {
   return null;
 }
 
+function hasCommand(command: string) {
+  const probe = process.platform === "win32" ? "where" : "command";
+  const args = process.platform === "win32" ? [command] : ["-v", command];
+  const result = spawnSync(probe, args, { encoding: "utf8", shell: process.platform !== "win32" });
+  return result.status === 0;
+}
+
+function extractZip(file: string, dir: string) {
+  if (process.platform === "win32") {
+    runCommand(
+      "powershell",
+      [
+        "-NoProfile",
+        "-Command",
+        `Expand-Archive -LiteralPath '${file}' -DestinationPath '${dir}' -Force`
+      ],
+      dir,
+      "Could not extract the Gradle distribution."
+    );
+    return;
+  }
+
+  runCommand("unzip", ["-q", "-o", file, "-d", dir], dir, "Install unzip to extract Gradle.");
+}
+
+function downloadFile(url: string, file: string, cwd: string) {
+  if (process.platform === "win32") {
+    runCommand(
+      "powershell",
+      [
+        "-NoProfile",
+        "-Command",
+        `$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri '${url}' -OutFile '${file}'`
+      ],
+      cwd,
+      "Could not download the Gradle distribution."
+    );
+    return;
+  }
+
+  runCommand("curl", ["-L", url, "-o", file], cwd, "Install curl to download Gradle.");
+}
+
+function installGradle(outDir: string) {
+  const cache = join(outDir, "..", "..", "cache");
+  const dir = join(cache, `gradle-${gradleVersion}`);
+  const zip = join(cache, `gradle-${gradleVersion}-bin.zip`);
+  const command =
+    process.platform === "win32" ? join(dir, "bin", "gradle.bat") : join(dir, "bin", "gradle");
+
+  if (existsSync(command)) return command;
+
+  mkdirSync(cache, { recursive: true });
+  if (!existsSync(zip)) {
+    downloadFile(
+      `https://services.gradle.org/distributions/gradle-${gradleVersion}-bin.zip`,
+      zip,
+      cache
+    );
+  }
+  extractZip(zip, cache);
+  return command;
+}
+
 export function packageAndroid(outDir: string) {
   const wrapper = process.platform === "win32" ? "gradlew.bat" : "./gradlew";
   const command = existsSync(join(outDir, wrapper.replace("./", ""))) ? wrapper : "gradle";
 
+  const gradle = command === "gradle" && !hasCommand("gradle") ? installGradle(outDir) : command;
   runCommand(
-    command,
+    gradle,
     ["assembleDebug"],
     outDir,
-    "Install Android SDK and Gradle, or open the generated project in Android Studio."
+    "Install Android SDK, or open the generated project in Android Studio."
   );
 
   const file = findApk(join(outDir, "app", "build", "outputs", "apk"));
