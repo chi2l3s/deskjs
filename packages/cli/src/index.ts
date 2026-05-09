@@ -37,14 +37,19 @@ cli.command("dev", "Start the deskjs dev server").action(async () => {
 cli
   .command("build", "Build the app")
   .option("--target <target>", "Build target", { default: "web" })
-  .action(async (options: { target: Target }) => {
+  .option("--package", "Create native package when the target supports it")
+  .option("--sign-profile <profile>", "Tizen signing profile for --package")
+  .action(async (options: { target: Target; package?: boolean; signProfile?: string }) => {
     try {
-      const result = await buildTarget(getRoot(), options.target);
-      if ("message" in result) {
-        process.stdout.write(`${pc.yellow(result.message)}\n`);
-        return;
-      }
+      const result = await buildTarget(getRoot(), options.target, {
+        shouldPackage: options.package,
+        signProfile: options.signProfile
+      });
       process.stdout.write(`${pc.green("Built")} ${result.target} app to ${result.outDir}\n`);
+      if (result.file)
+        process.stdout.write(
+          `${pc.green("Packaged")} ${result.target} artifact at ${result.file}\n`
+        );
     } catch (err) {
       printError(err);
     }

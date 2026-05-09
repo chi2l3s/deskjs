@@ -100,6 +100,9 @@ desk build --target=web
 desk build --target=tizen
 desk build --target=webos
 desk build --target=android
+desk build --target=android --package
+desk build --target=tizen --package --sign-profile <profile>
+desk build --target=webos --package
 desk run --target=web
 desk doctor
 ```
@@ -110,7 +113,29 @@ desk doctor
 
 The web adapter builds to `.desk/dist/web`.
 
-Tizen is modeled as a packaged web widget with generated `config.xml`. webOS is modeled as a packaged web app with generated `appinfo.json`. Android is modeled as a WebView shell loading built web assets from `android_asset/www`.
+Tizen builds to `.desk/dist/tizen` with web assets and `config.xml`. Package it with Tizen Studio CLI from that folder:
+
+```bash
+tizen package -t wgt -s <profile> -- .
+```
+
+webOS builds to `.desk/dist/webos` with web assets and `appinfo.json`. Package it with webOS TV CLI:
+
+```bash
+ares-package .
+```
+
+Android builds to `.desk/dist/android`, a Gradle project with a Java WebView shell and the web bundle copied to `app/src/main/assets/www`. Open it in Android Studio or run:
+
+```bash
+gradle assembleDebug
+```
+
+`--package` runs the installed platform SDK tools and copies final artifacts into `.desk/output`:
+
+- Android: runs `gradle assembleDebug` and copies the `.apk`.
+- Tizen: runs `tizen package -t wgt` and copies the `.wgt`. Pass signing with `--sign-profile` or `DESK_TIZEN_SIGN_PROFILE`.
+- webOS: runs `ares-package .` and copies the `.ipk`.
 
 ## Backend Data
 

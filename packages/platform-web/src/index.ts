@@ -1,4 +1,4 @@
-import { mkdirSync, cpSync, existsSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, renameSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 export interface WebOptions {
@@ -20,4 +20,16 @@ export function copyPublic(root: string, outDir: string) {
   const publicDir = join(root, "public");
   if (!existsSync(publicDir)) return;
   cpSync(publicDir, outDir, { recursive: true });
+}
+
+export function normalizeWeb(root: string) {
+  const outDir = getWebOutDir(root);
+  const nested = join(outDir, ".desk", "index.html");
+  const index = join(outDir, "index.html");
+  if (existsSync(nested)) {
+    rmSync(index, { force: true });
+    renameSync(nested, index);
+    rmSync(join(outDir, ".desk"), { recursive: true, force: true });
+  }
+  return { outDir };
 }

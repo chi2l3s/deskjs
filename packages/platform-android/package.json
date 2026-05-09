@@ -1,11 +1,14 @@
 {
   "name": "@deskjs/platform-android",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js"
+  },
+  "dependencies": {
+    "@deskjs/platform-web": "workspace:*"
   },
   "scripts": {
     "build": "tsup --config ../tsup.config.ts"
