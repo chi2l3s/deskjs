@@ -18,7 +18,7 @@
     "@deskjs/router": "workspace:*",
     "@tailwindcss/vite": "4.2.4",
     "@vitejs/plugin-react": "6.0.1",
-    "deskjs": "workspace:*",
+    "desk-js": "workspace:*",
     "vite": "8.0.11"
   },
   "devDependencies": {

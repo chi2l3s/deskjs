@@ -15,7 +15,7 @@
     "@deskjs/router": "0.1.0",
     "@deskjs/theme": "0.1.0",
     "@deskjs/ui": "0.1.0",
-    "deskjs": "0.1.0",
+    "desk-js": "0.1.0",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "tailwindcss": "4.2.4"

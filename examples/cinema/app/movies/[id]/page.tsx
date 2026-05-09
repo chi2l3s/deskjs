@@ -1,5 +1,5 @@
-import { Button, Hero, Page } from "deskjs/ui";
-import { useParams, useRouter } from "deskjs";
+import { Button, Hero, Page } from "desk-js/ui";
+import { useParams, useRouter } from "desk-js";
 import { mockMovies } from "../../../src/data/movies";
 
 export default function MoviePage() {

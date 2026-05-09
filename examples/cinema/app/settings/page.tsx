@@ -1,5 +1,5 @@
-import { Button, Page, SafeArea } from "deskjs/ui";
-import { useTheme } from "deskjs/theme";
+import { Button, Page, SafeArea } from "desk-js/ui";
+import { useTheme } from "desk-js/theme";
 
 export default function SettingsPage() {
   const { resolvedTheme, setTheme, toggleTheme } = useTheme();

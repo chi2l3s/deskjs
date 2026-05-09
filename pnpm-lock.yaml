@@ -49,7 +49,7 @@ importers:
       "@deskjs/ui":
         specifier: workspace:*
         version: link:../../packages/ui
-      deskjs:
+      desk-js:
         specifier: workspace:*
         version: link:../../packages/core
       react:
@@ -95,7 +95,7 @@ importers:
       "@deskjs/ui":
         specifier: workspace:*
         version: link:../../packages/ui
-      deskjs:
+      desk-js:
         specifier: workspace:*
         version: link:../../packages/core
       react:
@@ -169,7 +169,7 @@ importers:
       "@vitejs/plugin-react":
         specifier: 6.0.1
         version: 6.0.1(vite@8.0.11(@types/node@25.6.2)(esbuild@0.27.7)(jiti@2.7.0))
-      deskjs:
+      desk-js:
         specifier: workspace:*
         version: link:../core
       vite:

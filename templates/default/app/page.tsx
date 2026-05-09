@@ -1,4 +1,4 @@
-import { Button, Hero, Page, Poster, Row } from "deskjs/ui";
+import { Button, Hero, Page, Poster, Row } from "desk-js/ui";
 import { movies } from "../src/data";
 
 export default function HomePage() {

@@ -10,7 +10,7 @@
   "dependencies": {
     "@deskjs/cli": "workspace:*",
     "@deskjs/ui": "workspace:*",
-    "deskjs": "workspace:*",
+    "desk-js": "workspace:*",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "tailwindcss": "4.2.4"
