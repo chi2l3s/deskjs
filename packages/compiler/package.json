@@ -1,6 +1,6 @@
 {
   "name": "@deskjs/compiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -18,7 +18,7 @@
     "@deskjs/router": "workspace:*",
     "@tailwindcss/vite": "4.2.4",
     "@vitejs/plugin-react": "6.0.1",
-    "desk-js": "workspace:*",
+    "@chi2l3s/tablejs": "workspace:*",
     "vite": "8.0.11"
   },
   "devDependencies": {

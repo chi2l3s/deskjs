@@ -1,4 +1,4 @@
-import { defineConfig } from "desk-js";
+import { defineConfig } from "@chi2l3s/tablejs";
 
 export default defineConfig({
   appId: "com.deskjs.cinema",

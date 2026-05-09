@@ -1,6 +1,6 @@
 {
   "name": "my-desk-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,12 +10,12 @@
     "desk": "desk"
   },
   "dependencies": {
-    "@deskjs/cli": "0.1.0",
-    "@deskjs/focus": "0.1.0",
-    "@deskjs/router": "0.1.0",
-    "@deskjs/theme": "0.1.0",
-    "@deskjs/ui": "0.1.0",
-    "desk-js": "0.1.0",
+    "@chi2l3s/tablejs": "0.1.1",
+    "@deskjs/cli": "0.1.1",
+    "@deskjs/focus": "0.1.1",
+    "@deskjs/router": "0.1.1",
+    "@deskjs/theme": "0.1.1",
+    "@deskjs/ui": "0.1.1",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "tailwindcss": "4.2.4"

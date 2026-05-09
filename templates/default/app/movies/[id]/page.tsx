@@ -1,5 +1,5 @@
-import { Button, Hero, Page } from "desk-js/ui";
-import { useParams, useRouter } from "desk-js";
+import { Button, Hero, Page } from "@chi2l3s/tablejs/ui";
+import { useParams, useRouter } from "@chi2l3s/tablejs";
 import { getMovie } from "../../../src/movies";
 
 export default function MoviePage() {

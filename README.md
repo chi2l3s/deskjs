@@ -40,7 +40,7 @@ desk.config.ts
 deskjs provides a client-first router:
 
 ```tsx
-import { Link, useParams, useRouter } from "desk-js";
+import { Link, useParams, useRouter } from "@chi2l3s/tablejs";
 ```
 
 The router supports client navigation, dynamic params, nested layouts, and a generated route manifest. It intentionally does not implement SSR, React Server Components, server actions, middleware, or advanced caching.
@@ -50,7 +50,7 @@ The router supports client navigation, dynamic params, nested layouts, and a gen
 The focus engine is designed for TV remotes and keyboard arrows:
 
 ```tsx
-import { useFocusable } from "desk-js/focus";
+import { useFocusable } from "@chi2l3s/tablejs/focus";
 
 const { ref, focused, focusSelf } = useFocusable({
   id: "play-button",
@@ -66,7 +66,7 @@ It tracks focusable elements, reads their bounding boxes, scores candidates by d
 deskjs defaults to dark mode and supports `dark`, `light`, and `system`:
 
 ```tsx
-import { ThemeProvider, useTheme } from "desk-js/theme";
+import { ThemeProvider, useTheme } from "@chi2l3s/tablejs/theme";
 ```
 
 The provider persists the selected theme, resolves system preference, and updates both `class="dark"` and `data-theme="dark|light"` on the root element. Starter styles use CSS variables so Tailwind classes work in both modes.
@@ -86,7 +86,7 @@ No manual Tailwind setup is required for generated deskjs apps.
 Use TV-first components from `deskjs/ui` or `@deskjs/ui`:
 
 ```tsx
-import { Button, Hero, Row, Poster, Grid } from "desk-js/ui";
+import { Button, Hero, Row, Poster, Grid } from "@chi2l3s/tablejs/ui";
 ```
 
 Included components: `Button`, `IconButton`, `Hero`, `Card`, `Poster`, `Row`, `Grid`, `Tabs`, `Sidebar`, `Modal`, `Dialog`, `Toast`, `Spinner`, `TextInput`, `Keyboard`, `SafeArea`, and `Page`.

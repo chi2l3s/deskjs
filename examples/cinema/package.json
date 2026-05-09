@@ -1,6 +1,6 @@
 {
   "name": "deskjs-cinema-example",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "@deskjs/router": "workspace:*",
     "@deskjs/theme": "workspace:*",
     "@deskjs/ui": "workspace:*",
-    "desk-js": "workspace:*",
+    "@chi2l3s/tablejs": "workspace:*",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "tailwindcss": "4.2.4"

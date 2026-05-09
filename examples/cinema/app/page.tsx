@@ -1,4 +1,4 @@
-import { Button, Grid, Hero, Page, Poster, Row } from "desk-js/ui";
+import { Button, Grid, Hero, Page, Poster, Row } from "@chi2l3s/tablejs/ui";
 import { mockMovies } from "../src/data/movies";
 
 export default function HomePage() {

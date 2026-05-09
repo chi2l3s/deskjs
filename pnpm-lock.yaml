@@ -43,15 +43,15 @@ importers:
 
   apps/docs:
     dependencies:
+      "@chi2l3s/tablejs":
+        specifier: workspace:*
+        version: link:../../packages/core
       "@deskjs/cli":
         specifier: workspace:*
         version: link:../../packages/cli
       "@deskjs/ui":
         specifier: workspace:*
         version: link:../../packages/ui
-      desk-js:
-        specifier: workspace:*
-        version: link:../../packages/core
       react:
         specifier: 19.2.6
         version: 19.2.6
@@ -80,6 +80,9 @@ importers:
 
   examples/cinema:
     dependencies:
+      "@chi2l3s/tablejs":
+        specifier: workspace:*
+        version: link:../../packages/core
       "@deskjs/cli":
         specifier: workspace:*
         version: link:../../packages/cli
@@ -95,9 +98,6 @@ importers:
       "@deskjs/ui":
         specifier: workspace:*
         version: link:../../packages/ui
-      desk-js:
-        specifier: workspace:*
-        version: link:../../packages/core
       react:
         specifier: 19.2.6
         version: 19.2.6
@@ -148,6 +148,9 @@ importers:
 
   packages/compiler:
     dependencies:
+      "@chi2l3s/tablejs":
+        specifier: workspace:*
+        version: link:../core
       "@deskjs/platform-android":
         specifier: workspace:*
         version: link:../platform-android
@@ -169,9 +172,6 @@ importers:
       "@vitejs/plugin-react":
         specifier: 6.0.1
         version: 6.0.1(vite@8.0.11(@types/node@25.6.2)(esbuild@0.27.7)(jiti@2.7.0))
-      desk-js:
-        specifier: workspace:*
-        version: link:../core
       vite:
         specifier: 8.0.11
         version: 8.0.11(@types/node@25.6.2)(esbuild@0.27.7)(jiti@2.7.0)

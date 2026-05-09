@@ -1,5 +1,5 @@
-import { Button, Page, SafeArea } from "desk-js/ui";
-import { useTheme } from "desk-js/theme";
+import { Button, Page, SafeArea } from "@chi2l3s/tablejs/ui";
+import { useTheme } from "@chi2l3s/tablejs/theme";
 
 export default function SettingsPage() {
   const { resolvedTheme, setTheme, toggleTheme } = useTheme();
