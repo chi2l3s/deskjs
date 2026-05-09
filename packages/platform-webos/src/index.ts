@@ -45,7 +45,7 @@ export function buildWebos(options: WebosOptions) {
   );
   writeFileSync(
     join(outDir, "README.md"),
-    "Package this folder with webOS TV CLI: ares-package .\n"
+    "Package this folder with webOS TV CLI: ares-package --no-minify .\n"
   );
   return { outDir };
 }
@@ -59,7 +59,7 @@ function findPackage(outDir: string) {
 export function packageWebos(outDir: string) {
   runCommand(
     "ares-package",
-    ["."],
+    ["--no-minify", "."],
     outDir,
     "Install webOS TV CLI so `ares-package` is available, then rerun with --package."
   );
