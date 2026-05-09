@@ -6,7 +6,7 @@ import pc from "picocolors";
 
 function getTemplate() {
   const here = dirname(fileURLToPath(import.meta.url));
-  return resolve(here, "../../../templates/default");
+  return resolve(here, "../templates/default");
 }
 
 function getName() {
