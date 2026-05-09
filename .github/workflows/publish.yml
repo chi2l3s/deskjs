@@ -42,9 +42,6 @@ jobs:
       - name: Test
         run: pnpm test
 
-      - name: Build cinema example
-        run: pnpm --filter deskjs-cinema-example build
-
       - name: Publish
         run: node scripts/publish-packages.mjs
         env:
