@@ -1,0 +1,6 @@
+node_modules
+dist
+.desk
+coverage
+test-tv-app
+*.tsbuildinfo

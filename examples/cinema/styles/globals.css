@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --desk-bg: 255 255 255;
+  --desk-fg: 12 12 12;
+  --desk-card: 245 245 245;
+  --desk-muted: 92 92 92;
+  --desk-accent: 99 102 241;
+}
+
+.dark {
+  --desk-bg: 8 8 12;
+  --desk-fg: 245 245 245;
+  --desk-card: 24 24 32;
+  --desk-muted: 160 160 170;
+  --desk-accent: 129 140 248;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: rgb(var(--desk-bg));
+  color: rgb(var(--desk-fg));
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}

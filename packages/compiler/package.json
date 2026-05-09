@@ -1,0 +1,29 @@
+{
+  "name": "@deskjs/compiler",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup --config ../tsup.config.ts"
+  },
+  "dependencies": {
+    "@deskjs/platform-android": "workspace:*",
+    "@deskjs/platform-tizen": "workspace:*",
+    "@deskjs/platform-web": "workspace:*",
+    "@deskjs/platform-webos": "workspace:*",
+    "@deskjs/router": "workspace:*",
+    "@tailwindcss/vite": "4.2.4",
+    "@vitejs/plugin-react": "6.0.1",
+    "deskjs": "workspace:*",
+    "vite": "8.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "25.6.2",
+    "tsup": "8.5.1",
+    "typescript": "6.0.3"
+  }
+}

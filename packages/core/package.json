@@ -1,0 +1,31 @@
+{
+  "name": "deskjs",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./focus": "./dist/focus.js",
+    "./theme": "./dist/theme.js",
+    "./ui": "./dist/ui.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx src/focus.ts src/theme.ts src/ui.ts --format esm --dts --clean"
+  },
+  "dependencies": {
+    "@deskjs/focus": "workspace:*",
+    "@deskjs/router": "workspace:*",
+    "@deskjs/theme": "workspace:*",
+    "@deskjs/ui": "workspace:*",
+    "zod": "4.4.3"
+  },
+  "peerDependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "tsup": "8.5.1",
+    "typescript": "6.0.3"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "my-desk-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "desk dev",
+    "build": "desk build",
+    "start": "desk run --target=web",
+    "desk": "desk"
+  },
+  "dependencies": {
+    "@deskjs/cli": "0.1.0",
+    "@deskjs/focus": "0.1.0",
+    "@deskjs/router": "0.1.0",
+    "@deskjs/theme": "0.1.0",
+    "@deskjs/ui": "0.1.0",
+    "deskjs": "0.1.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwindcss": "4.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.2.4",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "6.0.3",
+    "vite": "8.0.11"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+.desk
+coverage
+test-tv-app
+packages/*/dist
+AGENTS.md

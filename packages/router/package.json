@@ -1,0 +1,22 @@
+{
+  "name": "@deskjs/router",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./manifest": "./dist/manifest.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx src/manifest.ts --format esm --dts --clean"
+  },
+  "peerDependencies": {
+    "react": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "tsup": "8.5.1",
+    "typescript": "6.0.3"
+  }
+}

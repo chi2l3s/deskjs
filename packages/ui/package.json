@@ -1,0 +1,25 @@
+{
+  "name": "@deskjs/ui",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm --dts --clean"
+  },
+  "dependencies": {
+    "@deskjs/focus": "workspace:*",
+    "@deskjs/router": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "tsup": "8.5.1",
+    "typescript": "6.0.3"
+  }
+}
