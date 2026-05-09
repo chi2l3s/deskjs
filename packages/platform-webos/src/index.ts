@@ -22,8 +22,15 @@ export function createWebosInfo(config: WebosConfig) {
     version: config.version,
     vendor: config.vendor ?? "deskjs",
     type: "web",
-    main: "index.html"
+    main: "index.html",
+    icon: "icon.png"
   };
+}
+
+function writeIcon(outDir: string) {
+  const png =
+    "iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfElEQVR4nO3bMQ6CQBBA0R3F/3/loqVJo2JhZ2SQm2HFBLbNNIDPrhPggwAAAAAAAAAAAAAAAAAAwPU5z7Pz7sz86fQy65v33jp9Ci5tTq9zgITlAQmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAYmLAcm1y7ll3dx4GJCoGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwGJCwHJt3gDcqER7r1YK6wAAAABJRU5ErkJggg==";
+  writeFileSync(join(outDir, "icon.png"), Buffer.from(png, "base64"));
 }
 
 export function buildWebos(options: WebosOptions) {
@@ -31,6 +38,7 @@ export function buildWebos(options: WebosOptions) {
   rmSync(outDir, { recursive: true, force: true });
   mkdirSync(outDir, { recursive: true });
   cpSync(options.webDir, outDir, { recursive: true });
+  writeIcon(outDir);
   writeFileSync(
     join(outDir, "appinfo.json"),
     `${JSON.stringify(createWebosInfo(options.config), null, 2)}\n`

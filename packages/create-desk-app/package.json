@@ -1,6 +1,6 @@
 {
   "name": "create-desk-app",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "type": "module",
   "bin": {
     "create-desk-app": "./dist/index.js"
